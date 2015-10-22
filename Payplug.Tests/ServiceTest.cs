@@ -71,6 +71,13 @@
             Service.Get(new Uri("http://httpstat.us/200"));
             Assert.IsNull(ServicePointManager.ServerCertificateValidationCallback);
         }
+        
+        [Test]
+        public void ServiceThrowOnBadCertificate()
+        {
+            System.Net.ServicePointManager.SecurityProtocol |= SecurityProtocolType.Tls12;
+            Assert.Throws<WebException>(delegate { Service.Get(new Uri("https://mismatched.stripe.com/")); });
+        }
 #endif
     }
 }
