@@ -47,17 +47,15 @@
             privateChain.ChainPolicy.ExtraStore.AddRange(certificate2Collection);
             privateChain.Build(new X509Certificate2(certificate));
 
-            bool isValid = true;
             foreach (X509ChainStatus chainStatus in privateChain.ChainStatus)
             {
                 if (chainStatus.Status != X509ChainStatusFlags.NoError)
                 {
-                    isValid = false;
-                    break;
+                    return false;
                 }
             }
 
-            return isValid;
+            return true;
         }
     }
 }
