@@ -21,8 +21,9 @@
         static CertificatesHandler()
         {
             var cacert = System.Text.Encoding.Default.GetString(Payplug.Resource.cacert);
-            var rawPemCertificates = new Regex(@"-----BEGIN CERTIFICATE-----((?:.*\s)*?)-----END CERTIFICATE-----",
-                                               RegexOptions.Compiled | RegexOptions.Multiline).Matches(cacert);
+            var rawPemCertificates = new Regex(
+                @"-----BEGIN CERTIFICATE-----((?:.*\s)*?)-----END CERTIFICATE-----",
+                RegexOptions.Compiled | RegexOptions.Multiline).Matches(cacert);
 
             certificate2Collection = new X509Certificate2Collection();
             foreach (Match rawPemCertificate in rawPemCertificates)
