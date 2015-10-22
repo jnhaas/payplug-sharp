@@ -54,7 +54,6 @@
             System.Net.ServicePointManager.SecurityProtocol |= SecurityProtocolType.Tls11;
             Assert.Throws<ClientWebException>(delegate { Service.Get(new Uri("http://httpstat.us/400")); });
             Assert.Throws<ClientWebException>(delegate { Service.Get(new Uri("http://httpstat.us/404")); });
-
         }
 
         [Test]
@@ -62,7 +61,15 @@
         {
             System.Net.ServicePointManager.SecurityProtocol |= SecurityProtocolType.Tls11;
             Assert.Throws<WebException>(delegate { Service.Get(new Uri("http://httpstat.us/300")); });
+        }
 
+        [Test]
+        public void ServiceReleaseServerCertificateValidationCallback()
+        {
+            ServicePointManager.ServerCertificateValidationCallback = null;
+            System.Net.ServicePointManager.SecurityProtocol |= SecurityProtocolType.Tls11;
+            Service.Get(new Uri("http://httpstat.us/200"));
+            Assert.IsNull(ServicePointManager.ServerCertificateValidationCallback);
         }
 #endif
     }

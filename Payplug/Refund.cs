@@ -25,7 +25,7 @@
         /// <example>
         /// Create a refund from a payment id:
         /// <code><![CDATA[ 
-        /// paymentId = "pay_5iHMDxy4ABR4YBVW4UscIn";
+        /// var paymentId = "pay_5iHMDxy4ABR4YBVW4UscIn";
         /// var refundData = new Dictionary<string, dynamic>
         /// {
         ///    {"amount", 3300},
@@ -37,9 +37,9 @@
         ///     }
         /// };
         /// var refund = Refund.Create(paymentId, refundData);
-        /// </code>
+        /// ]]></code>
         /// Or even simpler for a total refund:
-        /// <code>
+        /// <code><![CDATA[
         /// var refund = Refund.Create(paymentId);
         /// ]]></code>
         /// </example>
@@ -68,11 +68,11 @@
         /// <param name="refundID">ID of the refund to retrieve.</param>
         /// <returns>The refund object asked.</returns>
         /// <example>
-        /// <code>
+        /// <code><![CDATA[
         /// var paymentId = "pay_5iHMDxy4ABR4YBVW4UscIn";
         /// var refundId = "re_3NxGqPfSGMHQgLSZH0Mv3B";
-        /// var refund = Refund.retrieve(paymentId, refundId);
-        /// </code>
+        /// var refund = Refund.Retrieve(paymentId, refundId);
+        /// ]]></code>
         /// </example>
         public static Dictionary<string, dynamic> Retrieve(string paymentID, string refundID)
         {
@@ -97,11 +97,11 @@
         /// <param name="paymentID">ID of the refunds' payment.</param>
         /// <returns>A collection of refunds for a given payment.</returns>
         /// <example>
-        /// <code>
+        /// <code><![CDATA[
         /// var paymentId = "pay_5iHMDxy4ABR4YBVW4UscIn";
-        /// var refunds = Refund.list(paymentId);
+        /// var refunds = Refund.List(paymentId);
         /// var refund = refunds["data"][0];
-        /// </code>
+        /// ]]></code>
         /// </example>
         public static Dictionary<string, dynamic> List(string paymentID)
         {

@@ -4,7 +4,6 @@
     using Payplug;
     using Payplug.Exceptions;
 
-
     [TestFixture]
     public class ConfigurationTest
     {

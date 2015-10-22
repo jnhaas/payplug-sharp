@@ -10,14 +10,14 @@
     [TestFixture]
     public class PaymentTests
     {
-        public const string PaymentID = "pay_5iHMDxy4ABR4YBVW4UscIn";
-        public const string PaymentRaw = @"{""id"": ""pay_5iHMDxy4ABR4YBVW4UscIn""}";
-        public Dictionary<string, dynamic> PaymentData;
+        private const string PaymentID = "pay_5iHMDxy4ABR4YBVW4UscIn";
+        private const string PaymentRaw = @"{""id"": ""pay_5iHMDxy4ABR4YBVW4UscIn""}";
+        private Dictionary<string, dynamic> paymentData;
 
         [SetUp]
         public void Init()
         {
-            this.PaymentData = new Dictionary<string, dynamic>
+            this.paymentData = new Dictionary<string, dynamic>
             {
                 { "id", PaymentID }
             };
@@ -28,7 +28,7 @@
         {
             Configuration.SecretKey = string.Empty;
 
-            Assert.Throws<ConfigurationException>(delegate { Payment.Create(this.PaymentData); });
+            Assert.Throws<ConfigurationException>(delegate { Payment.Create(this.paymentData); });
             Assert.Throws<ConfigurationException>(delegate { Payment.CreateRaw(PaymentRaw); });
             Assert.Throws<ConfigurationException>(delegate { Payment.List(); });
             Assert.Throws<ConfigurationException>(delegate { Payment.ListRaw(); });
@@ -45,7 +45,7 @@
             System.Net.ServicePointManager.SecurityProtocol &= ~SecurityProtocolType.Tls11;
             System.Net.ServicePointManager.SecurityProtocol &= ~SecurityProtocolType.Tls12;
 
-            Assert.Throws<ConfigurationException>(delegate { Payment.Create(this.PaymentData); });
+            Assert.Throws<ConfigurationException>(delegate { Payment.Create(this.paymentData); });
             Assert.Throws<ConfigurationException>(delegate { Payment.CreateRaw(PaymentRaw); });
             Assert.Throws<ConfigurationException>(delegate { Payment.List(); });
             Assert.Throws<ConfigurationException>(delegate { Payment.ListRaw(); });

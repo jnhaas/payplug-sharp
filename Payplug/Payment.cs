@@ -18,7 +18,6 @@
         /// <returns>The created payment.</returns>
         /// <example>
         /// <code><![CDATA[ 
-        /// paymentId = "pay_5iHMDxy4ABR4YBVW4UscIn";
         /// var paymentData = new Dictionary<string, dynamic>
         /// {
         ///     {"amount", 3300},
@@ -67,9 +66,9 @@
         /// <param name="paymentID">ID of the payment to retrieve.</param>
         /// <returns>The payment asked.</returns>
         /// <example>
-        /// <code>
-        /// var payment = Payment.retrieve("pay_5iHMDxy4ABR4YBVW4UscIn");
-        /// </code>
+        /// <code><![CDATA[ 
+        /// var payment = Payment.Retrieve("pay_5iHMDxy4ABR4YBVW4UscIn");
+        /// ]]></code>
         /// </example>
         public static Dictionary<string, dynamic> Retrieve(string paymentID)
         {
@@ -90,10 +89,10 @@
         /// <param name="per_page">number of payment per page.</param>
         /// <returns>A collection of payments.</returns>       
         /// <example>
-        /// <code>
-        /// var payments = Payment.list();
+        /// <code><![CDATA[ 
+        /// var payments = Payment.List();
         /// var payment = payments["data"][0];
-        /// </code>
+        /// ]]></code>
         /// </example>
         public static Dictionary<string, dynamic> List(uint? page = null, uint? per_page = null)
         {
@@ -107,9 +106,9 @@
         /// <param name="paymentID">ID of the payment to abort.</param>
         /// <returns>The aborted payment.</returns>        
         /// <example>
-        /// <code>
+        /// <code><![CDATA[
         /// var payment = Payment.Abort("pay_5iHMDxy4ABR4YBVW4UscIn");
-        /// </code>
+        /// ]]></code>
         /// </example>
         public static Dictionary<string, dynamic> Abort(string paymentID)
         {

@@ -4,21 +4,21 @@
     /// Exception thrown when the notification you got is invalid.
     /// </summary>
     [System.Serializable]
-    public class InvalidAPIResourceException : System.ArgumentException
+    public class InvalidApiResourceException : System.ArgumentException
     {
-        public InvalidAPIResourceException()
+        public InvalidApiResourceException()
         {
         }
 
-        public InvalidAPIResourceException(string message) : base(message)
+        public InvalidApiResourceException(string message) : base(message)
         {
         }
 
-        public InvalidAPIResourceException(string message, System.Exception inner) : base(message, inner)
+        public InvalidApiResourceException(string message, System.Exception inner) : base(message, inner)
         {
         }
 
-        protected InvalidAPIResourceException(
+        protected InvalidApiResourceException(
           System.Runtime.Serialization.SerializationInfo info,
           System.Runtime.Serialization.StreamingContext context) : base(info, context)
         {

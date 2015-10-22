@@ -32,7 +32,7 @@
         ///         // Process the refund
         ///     }
         /// } 
-        /// catch (PayplugError e)
+        /// catch (InvalidApiResourceException e)
         /// {
         ///     // Handle errors
         /// }
@@ -53,17 +53,17 @@
             }
             catch (JsonSerializationException)
             {
-                throw new InvalidAPIResourceException("Request body is malformed JSON.");
+                throw new InvalidApiResourceException("Request body is malformed JSON.");
             }
             catch (KeyNotFoundException)
             {
-                throw new InvalidAPIResourceException("The API resource provided is invalid.");
+                throw new InvalidApiResourceException("The API resource provided is invalid.");
             }
             catch (ClientWebException e)
             {
                 if (e.StatusCode == HttpStatusCode.NotFound)
                 {
-                    throw new InvalidAPIResourceException("The resource you requested could not be found.");
+                    throw new InvalidApiResourceException("The resource you requested could not be found.");
                 }
                 else
                 {
@@ -93,17 +93,17 @@
             }
             catch (JsonSerializationException)
             {
-                throw new InvalidAPIResourceException("Request body is malformed JSON.");
+                throw new InvalidApiResourceException("Request body is malformed JSON.");
             }
             catch (KeyNotFoundException)
             {
-                throw new InvalidAPIResourceException("The API resource provided is invalid.");
+                throw new InvalidApiResourceException("The API resource provided is invalid.");
             }
             catch (ClientWebException e)
             {
                 if (e.StatusCode == HttpStatusCode.NotFound)
                 {
-                    throw new InvalidAPIResourceException("The resource you requested could not be found.");
+                    throw new InvalidApiResourceException("The resource you requested could not be found.");
                 }
                 else
                 {

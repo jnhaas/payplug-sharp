@@ -9,8 +9,8 @@
     [TestFixture]
     public class RefundTests
     {
-        public const string PaymentID = "pay_5iHMDxy4ABR4YBVW4UscIn";
-        public const string RefundID = "re_3NxGqPfSGMHQgLSZH0Mv3B";
+        private const string PaymentID = "pay_5iHMDxy4ABR4YBVW4UscIn";
+        private const string RefundID = "re_3NxGqPfSGMHQgLSZH0Mv3B";
 
         [Test]
         public void RefundThrowOnEmptySecretKey()

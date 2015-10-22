@@ -59,6 +59,8 @@
                 throw new ConfigurationException("Trying to process a request despite the fact that TLSv1.1+ was not enabled.");
             }
 #endif
+            var oldCallback = ServicePointManager.ServerCertificateValidationCallback;
+            ServicePointManager.ServerCertificateValidationCallback = CertificatesHandler.ValidateServerCertificate;
 
             try
             {
@@ -102,6 +104,10 @@
                 // Map a response to an Exception to throw
                 throw MapHTTPStatusToException(e);
             }
+            finally
+            {
+                ServicePointManager.ServerCertificateValidationCallback = oldCallback;
+            }
         }
 
         /// <summary>
@@ -128,7 +134,6 @@
                         break;
                 }
             }
-            // Or throw it as it
             else
             {
                 exception = e;

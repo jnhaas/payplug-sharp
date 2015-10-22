@@ -14,7 +14,9 @@ Thumbs.db
 /Payplug/obj/*
 /Payplug.Tests/bin/*
 /Payplug.Tests/obj/*
+/Payplug.Tests/FakesAssemblies
 
+*.StyleCop
 TestResult.xml
 TestResults/
 packages/

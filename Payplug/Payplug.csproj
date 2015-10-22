@@ -43,20 +43,32 @@
     <Reference Include="System.Web.Extensions" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Core\CertificatesHandler.cs" />
     <Compile Include="Core\Routes.cs" />
     <Compile Include="Exceptions\ConfigurationException.cs" />
     <Compile Include="Exceptions\ClientWebException.cs" />
-    <Compile Include="Exceptions\InvalidAPIResourceException.cs" />
+    <Compile Include="Exceptions\InvalidApiResourceException.cs" />
     <Compile Include="Notification.cs" />
     <Compile Include="Payment.cs" />
     <Compile Include="Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Core\Service.cs" />
     <Compile Include="Refund.cs" />
+    <Compile Include="Resource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.resx</DependentUpon>
+    </Compile>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Resource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="Resources\cacert.pem" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

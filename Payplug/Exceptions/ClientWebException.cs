@@ -3,8 +3,8 @@
     using System;
     using System.Collections.Generic;
     using System.IO;
-    using System.Runtime.Serialization;
     using System.Net;
+    using System.Runtime.Serialization;
     using Newtonsoft.Json;
 
     /// <summary>
@@ -25,23 +25,10 @@
         {
         }
 
-        public ClientWebException(WebException inner) : base(inner.Message, inner, inner.Status, inner.Response)
+        public ClientWebException(WebException inner) : base(GetMessageFromWebResponse(inner), inner, inner.Status, inner.Response)
         {
-            var webResponse = this.Response as HttpWebResponse;
+            var webResponse = inner.Response as HttpWebResponse;
             this.StatusCode = webResponse.StatusCode;
-
-            using (var sr = new StreamReader(Response.GetResponseStream()))
-            {
-                try
-                {
-                    var response = sr.ReadToEnd();
-                    this.Message = JsonConvert.DeserializeObject<Dictionary<string, dynamic>>(response)["message"];
-                }
-                catch (Exception)
-                {
-                    this.Message = base.Message;
-                }
-               }
         }
 
         protected ClientWebException(
@@ -49,19 +36,37 @@
           System.Runtime.Serialization.StreamingContext context) : base(info, context)
         {
         }
-        public override void GetObjectData(SerializationInfo serializationInfo, StreamingContext streamingContext)
-        {
-            base.GetObjectData(serializationInfo, streamingContext);
-        }
 
         /// <summary>
         /// Gets the http status code received.
         /// </summary>
         public HttpStatusCode StatusCode { get; }
 
-        /// <summary>
-        /// Gets a message that describes the current exception.
-        /// </summary>
-        public override string Message { get; }
+        public override void GetObjectData(SerializationInfo serializationInfo, StreamingContext streamingContext)
+        {
+            base.GetObjectData(serializationInfo, streamingContext);
+        }
+
+        private static string GetMessageFromWebResponse(WebException e)
+        {
+            string message;
+            var webResponse = e.Response as HttpWebResponse;
+
+            using (var sr = new StreamReader(webResponse.GetResponseStream()))
+            {
+                try
+                {
+                    var response = sr.ReadToEnd();
+                    message = JsonConvert.DeserializeObject<Dictionary<string, dynamic>>(response)["message"];
+                }
+                catch (Exception)
+                {
+                    message = e.Message;
+                }
+            }
+
+            webResponse.Close();
+            return message;
+        }
     }
 }
