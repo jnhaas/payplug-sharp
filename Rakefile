@@ -8,6 +8,7 @@ task :clean do
 end
 
 task :compile => :clean do
+  sh "NuGet restore Payplug.sln"
   sh "xbuild Payplug.sln"
 end
 
