@@ -1,7 +1,7 @@
-Welcome to PayPlug e-commerce library's documentation!
-======================================================
+.NET library for the PayPlug API
+================================
 
-This is the documentation of PayPlug's e-commerce .NET library. It is designed to
+This is the documentation of PayPlug's .NET library. It is designed to
 help developers to use PayPlug as payment solution in a simple, yet robust way.
 
 Prerequisites
@@ -94,3 +94,4 @@ To run the tests, run the following command:
 .. code-block:: bash
 
     $ rake test
+
