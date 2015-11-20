@@ -78,6 +78,13 @@
             System.Net.ServicePointManager.SecurityProtocol |= SecurityProtocolType.Tls12;
             Assert.Throws<WebException>(delegate { Service.Get(new Uri("https://mismatched.stripe.com/")); });
         }
+
+        [Test]
+        public void ServiceWorksOnUtfChar()
+        {
+            System.Net.ServicePointManager.SecurityProtocol |= SecurityProtocolType.Tls12;
+            Assert.DoesNotThrow(delegate { Service.Post(new Uri("http://jsonplaceholder.typicode.com.com/posts"), "très spécial"); });
+        }
 #endif
     }
 }

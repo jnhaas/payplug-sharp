@@ -3,6 +3,7 @@
     using System;
     using System.IO;
     using System.Net;
+    using System.Text;
     using Exceptions;
 
     /// <summary>
@@ -75,11 +76,12 @@
                 request.Method = method;
                 if (!string.IsNullOrEmpty(data))
                 {
+                    byte[] buffer = Encoding.UTF8.GetBytes(data);
                     request.ContentType = "application/json";
-                    request.ContentLength = data.Length;
-                    using (var sw = new StreamWriter(request.GetRequestStream()))
+                    request.ContentLength = buffer.Length;
+                    using (var rs = request.GetRequestStream())
                     {
-                        sw.Write(data);
+                        rs.Write(buffer, 0, buffer.Length);
                     }
                 }
 
