@@ -71,7 +71,7 @@
             Service.Get(new Uri("http://httpstat.us/200"));
             Assert.IsNull(ServicePointManager.ServerCertificateValidationCallback);
         }
-        
+
         [Test]
         public void ServiceThrowOnBadCertificate()
         {

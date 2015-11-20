@@ -1,7 +1,10 @@
-Welcome to PayPlug e-commerce library's documentation!
-======================================================
 
 This is the documentation of PayPlug's e-commerce .NET library. It is designed to
+=======
+.NET library for the PayPlug API
+================================
+
+This is the documentation of PayPlug's .NET library. It is designed to
 help developers to use PayPlug as payment solution in a simple, yet robust way.
 
 Prerequisites
@@ -17,7 +20,7 @@ Installation
 
 .. code-block:: bash
 
-    PM> Install-Package Payplug 
+    PM> Install-Package Payplug
 
 
 or simply add *Payplug* as a dependency of your project.
