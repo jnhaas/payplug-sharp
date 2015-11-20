@@ -37,6 +37,7 @@
             Assert.IsTrue(Routes.Uri(null).AbsoluteUri.StartsWith(Configuration.ApiBaseUrl));
             Configuration.ApiBaseUrl = "http://apibaseurl.com";
             Assert.IsTrue(Routes.Uri(null).AbsoluteUri.StartsWith(Configuration.ApiBaseUrl));
+            Configuration.ApiBaseUrl = "http://apibaseurl.com";
         }
 
         [Test]
