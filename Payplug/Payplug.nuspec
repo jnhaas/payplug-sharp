@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>$title$</title>
+    <authors>$author$</authors>
+    <owners>$author$</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <projectUrl>https://github.com/payplug/payplug-sharp</projectUrl>
+    <iconUrl>https://avatars.githubusercontent.com/u/13571703</iconUrl>
+    <description>PayPlug payment solution</description>
+    <copyright>Copyright 2015</copyright>
+    <tags>payplug, payment, credit cards, money, integration, api</tags>
+    <dependencies>
+      <dependency id="Newtonsoft.Json" version="7.0.1" />
+    </dependencies>
+  </metadata>
+</package>
