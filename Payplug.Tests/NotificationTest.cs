@@ -30,19 +30,22 @@
             Assert.Throws<InvalidApiResourceException>(delegate { Notification.TreatRaw(missingIdJson); }, message);
         }
 
-#if !__MonoCS__
         [Test]
         public void NotificationThrowOnMissingSecurityProtocol()
         {
             Configuration.SecretKey = "mysecretkey";
+            System.Net.ServicePointManager.SecurityProtocol &= ~SecurityProtocolType.Tls;
+#if !__MonoCS__
             System.Net.ServicePointManager.SecurityProtocol &= ~SecurityProtocolType.Tls11;
             System.Net.ServicePointManager.SecurityProtocol &= ~SecurityProtocolType.Tls12;
+#endif
 
             var validJson = @"{""id"": ""paymentID""}";
             Assert.Throws<ConfigurationException>(delegate { Notification.Treat(validJson); });
             Assert.Throws<ConfigurationException>(delegate { Notification.TreatRaw(validJson); });
         }
 
+#if !__MonoCS__
         [Test]
         public void NotificationThrowOnNotFound()
         {

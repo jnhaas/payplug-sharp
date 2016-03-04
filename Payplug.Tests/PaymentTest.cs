@@ -37,14 +37,15 @@
             Assert.Throws<ConfigurationException>(delegate { Payment.Abort(PaymentID); });
         }
 
-#if !__MonoCS__
         [Test]
         public void PaymentThrowOnMissingSecurityProtocol()
         {
             Configuration.SecretKey = "mysecretkey";
+            System.Net.ServicePointManager.SecurityProtocol &= ~SecurityProtocolType.Tls;
+#if !__MonoCS__
             System.Net.ServicePointManager.SecurityProtocol &= ~SecurityProtocolType.Tls11;
             System.Net.ServicePointManager.SecurityProtocol &= ~SecurityProtocolType.Tls12;
-
+#endif
             Assert.Throws<ConfigurationException>(delegate { Payment.Create(this.paymentData); });
             Assert.Throws<ConfigurationException>(delegate { Payment.CreateRaw(PaymentRaw); });
             Assert.Throws<ConfigurationException>(delegate { Payment.List(); });
@@ -53,7 +54,6 @@
             Assert.Throws<ConfigurationException>(delegate { Payment.RetrieveRaw(PaymentID); });
             Assert.Throws<ConfigurationException>(delegate { Payment.Abort(PaymentID); });
         }
-#endif
 
         [Test]
         public void PaymentThrowOnNullArgs()

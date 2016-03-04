@@ -25,13 +25,15 @@
             Assert.Throws<ConfigurationException>(delegate { Refund.RetrieveRaw(PaymentID, RefundID); });
         }
 
-#if !__MonoCS__
         [Test]
         public void RefundThrowOnMissingSecurityProtocol()
         {
             Configuration.SecretKey = "mysecretkey";
+            System.Net.ServicePointManager.SecurityProtocol &= ~SecurityProtocolType.Tls;
+#if !__MonoCS__
             System.Net.ServicePointManager.SecurityProtocol &= ~SecurityProtocolType.Tls11;
             System.Net.ServicePointManager.SecurityProtocol &= ~SecurityProtocolType.Tls12;
+#endif
 
             Assert.Throws<ConfigurationException>(delegate { Refund.Create(PaymentID); });
             Assert.Throws<ConfigurationException>(delegate { Refund.CreateRaw(PaymentID); });
@@ -40,7 +42,6 @@
             Assert.Throws<ConfigurationException>(delegate { Refund.Retrieve(PaymentID, RefundID); });
             Assert.Throws<ConfigurationException>(delegate { Refund.RetrieveRaw(PaymentID, RefundID); });
         }
-#endif
 
         [Test]
         public void RefundThrowOnNullArgs()

@@ -53,13 +53,18 @@
         /// <returns>The response content.</returns>
         private static string Request(string method, Uri uri, string data, string authorizationHeader = null)
         {
+
 #if !__MonoCS__
-            if ((System.Net.ServicePointManager.SecurityProtocol & SecurityProtocolType.Tls11) != SecurityProtocolType.Tls11 &&
+            if ((System.Net.ServicePointManager.SecurityProtocol & SecurityProtocolType.Tls) != SecurityProtocolType.Tls &&
+                (System.Net.ServicePointManager.SecurityProtocol & SecurityProtocolType.Tls11) != SecurityProtocolType.Tls11 &&
                 (System.Net.ServicePointManager.SecurityProtocol & SecurityProtocolType.Tls12) != SecurityProtocolType.Tls12)
-            {
-                throw new ConfigurationException("Trying to process a request despite the fact that TLSv1.1+ was not enabled.");
-            }
+#else
+            if ((System.Net.ServicePointManager.SecurityProtocol & SecurityProtocolType.Tls) != SecurityProtocolType.Tls)
 #endif
+            {
+                throw new ConfigurationException("Trying to process a request despite the fact that TLSv1+ was not enabled.");
+            }
+
             var oldCallback = ServicePointManager.ServerCertificateValidationCallback;
             ServicePointManager.ServerCertificateValidationCallback = CertificatesHandler.ValidateServerCertificate;
 
