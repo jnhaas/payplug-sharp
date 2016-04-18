@@ -44,6 +44,17 @@
         }
 
         /// <summary>
+        /// Send an authenticated DELETE request.
+        /// </summary>
+        /// <param name="uri">The URI to the resource queried.</param>
+        /// <param name="data">The request content.</param>
+        /// <returns>The response content.</returns>
+        public static void Delete(Uri uri, string data = null)
+        {
+            Request("DELETE", uri, data, Configuration.AuthorizationHeader);
+        }
+
+        /// <summary>
         /// Perform an HTTP request.
         /// </summary>
         /// <param name="method">The HTTP verb (GET, POST, PUT, …).</param>

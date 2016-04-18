@@ -26,6 +26,7 @@
             Assert.Throws<ConfigurationException>(delegate { Service.Get(new Uri("https://www.ssllabs.com:10303/")); });
             Assert.Throws<ConfigurationException>(delegate { Service.Patch(new Uri("https://www.ssllabs.com:10303/"), null); });
             Assert.Throws<ConfigurationException>(delegate { Service.Post(new Uri("https://www.ssllabs.com:10303/"), null); });
+            Assert.Throws<ConfigurationException>(delegate { Service.Delete(new Uri("https://www.ssllabs.com:10303/"), null); });
         }
 
         [Test]
