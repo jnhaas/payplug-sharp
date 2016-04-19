@@ -75,6 +75,28 @@
         /// </summary>
         public const string DeleteCustomer = "/customers/{customer_id}";
 
+        // Card routes
+
+        /// <summary>
+        /// Route path used to save cards to a customer.
+        /// </summary>
+        public const string CreateCard = "/customers/{customer_id}/cards";
+
+        /// <summary>
+        /// Route path used to retrieve cards.
+        /// </summary>
+        public const string RetrieveCard = "/customers/{customer_id}/cards/{card_token}";
+
+        /// <summary>
+        /// Route path used to list cards for customers.
+        /// </summary>
+        public const string ListCards = "/customers/{customer_id}/cards";
+
+        /// <summary>
+        /// Route path used to delete cards.
+        /// </summary>
+        public const string DeleteCard = "/customers/{customer_id}/cards/{card_token}";
+
         /// <summary>
         /// Version of the API used in the URLs.
         /// </summary>
