@@ -48,6 +48,33 @@
         /// </summary>
         public const string ListRefunds = "/payments/{payment_id}/refunds";
 
+        // Customer routes
+
+        /// <summary>
+        /// Route path used to create customers.
+        /// </summary>
+        public const string CreateCustomer = "/customers/{customer_id}";
+
+        /// <summary>
+        /// Route path used to retrieve customers.
+        /// </summary>
+        public const string RetrieveCustomer = "/customers/{customer_id}";
+
+        /// <summary>
+        /// Route path used to list customers.
+        /// </summary>
+        public const string ListCustomers = "/customers";
+
+        /// <summary>
+        /// Route path used to update customers.
+        /// </summary>
+        public const string UpdateCustomer = "/customers/{customer_id}";
+
+        /// <summary>
+        /// Route path used to delete customers.
+        /// </summary>
+        public const string DeleteCustomer = "/customers/{customer_id}";
+
         /// <summary>
         /// Version of the API used in the URLs.
         /// </summary>
