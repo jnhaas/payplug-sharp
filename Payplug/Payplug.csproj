@@ -43,8 +43,10 @@
     <Reference Include="System.Web.Extensions" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Card.cs" />
     <Compile Include="Core\CertificatesHandler.cs" />
     <Compile Include="Core\Routes.cs" />
+    <Compile Include="Customer.cs" />
     <Compile Include="Exceptions\ConfigurationException.cs" />
     <Compile Include="Exceptions\ClientWebException.cs" />
     <Compile Include="Exceptions\InvalidApiResourceException.cs" />

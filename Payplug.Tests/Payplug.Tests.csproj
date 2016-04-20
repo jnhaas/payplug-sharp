@@ -62,7 +62,9 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="CardTest.cs" />
     <Compile Include="ConfigurationTest.cs" />
+    <Compile Include="CustomerTest.cs" />
     <Compile Include="NotificationTest.cs" />
     <Compile Include="PaymentTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
