@@ -233,7 +233,7 @@ namespace Payplug
                 { "customer_id", customerID }
             };
             var uri = Routes.Uri(Routes.UpdateCustomer, parameters);
-            return Service.Patch(uri);
+            return Service.Patch(uri, customer);
         }
     }
 }

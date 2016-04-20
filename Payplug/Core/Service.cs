@@ -48,7 +48,6 @@
         /// </summary>
         /// <param name="uri">The URI to the resource queried.</param>
         /// <param name="data">The request content.</param>
-        /// <returns>The response content.</returns>
         public static void Delete(Uri uri, string data = null)
         {
             Request("DELETE", uri, data, Configuration.AuthorizationHeader);
@@ -64,7 +63,6 @@
         /// <returns>The response content.</returns>
         private static string Request(string method, Uri uri, string data, string authorizationHeader = null)
         {
-
 #if !__MonoCS__
             if ((System.Net.ServicePointManager.SecurityProtocol & SecurityProtocolType.Tls) != SecurityProtocolType.Tls &&
                 (System.Net.ServicePointManager.SecurityProtocol & SecurityProtocolType.Tls11) != SecurityProtocolType.Tls11 &&

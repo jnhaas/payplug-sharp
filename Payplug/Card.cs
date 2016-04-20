@@ -17,6 +17,7 @@ namespace Payplug
         /// <param name="customerID">ID of the card's owner.</param>
         /// <param name="card">Data used to create the card.</param>
         /// <returns>The created card.</returns>
+        /// <example>
         /// <code><![CDATA[
         /// var cardData = new Dictionary<string, dynamic>
         /// {
@@ -38,7 +39,7 @@ namespace Payplug
             }
 
             var json = JsonConvert.SerializeObject(card);
-            var response = CreateRaw(json);
+            var response = CreateRaw(customerID, json);
             return JsonConvert.DeserializeObject<Dictionary<string, dynamic>>(response);
         }
 
@@ -49,6 +50,7 @@ namespace Payplug
         /// <param name="customerID">ID of the card's owner.</param>
         /// <param name="cardToken">Token of the card queried.</param>
         /// <returns>The card asked.</returns>
+        /// <example>
         /// <code><![CDATA[
         /// var card = Card.Retrieve("cus_72F7mCcibttCnv", "card_167oJVCpvtR9j8N85LraL2GA");
         /// ]]></code>
@@ -77,6 +79,7 @@ namespace Payplug
         /// <param name="page">The page number.</param>
         /// <param name="per_page">number of payment per page.</param>
         /// <returns>A collection of cards.</returns>
+        /// <example>
         /// <code><![CDATA[
         /// var cards = Card.List("cus_72F7mCcibttCnv");
         /// var card = cards["data"][0];
@@ -98,6 +101,7 @@ namespace Payplug
         /// </summary>
         /// <param name="customerID">ID of the card's owner.</param>
         /// <param name="cardToken">ID of the card to delete.</param>
+        /// <example>
         /// <code><![CDATA[
         ///  Card.Delete("cus_72F7mCcibttCnv", "card_167oJVCpvtR9j8N85LraL2GA");
         /// ]]></code>
