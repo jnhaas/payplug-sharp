@@ -1,0 +1,8 @@
+language: csharp
+solution: Payplug.sln
+install:
+  - nuget restore Payplug.sln
+  - nuget install NUnit.Runners -Version 2.6.4 -OutputDirectory testrunner
+script:
+  - xbuild /p:Configuration=Release  Payplug.sln
+  - mono ./testrunner/NUnit.Runners.2.6.4/tools/nunit-console.exe ./Payplug.Tests/bin/Release/Payplug.Tests.dll
