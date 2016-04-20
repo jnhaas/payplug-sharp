@@ -1,8 +1,13 @@
-
-This is the documentation of PayPlug's e-commerce .NET library. It is designed to
-=======
 .NET library for the PayPlug API
 ================================
+
+.. image:: https://travis-ci.org/payplug/payplug-sharp.svg?branch=master
+   :target: https://travis-ci.org/payplug/payplug-sharp
+   :alt: ci-status
+
+.. image:: https://img.shields.io/nuget/v/Payplug.svg?maxAge=2592000
+   :target: https://www.nuget.org/packages/Payplug
+   :alt: nuget
 
 This is the documentation of PayPlug's .NET library. It is designed to
 help developers to use PayPlug as payment solution in a simple, yet robust way.
