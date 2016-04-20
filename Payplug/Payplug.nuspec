@@ -6,6 +6,7 @@
     <title>$title$</title>
     <authors>$author$</authors>
     <owners>$author$</owners>
+    <licenseUrl>https://github.com/payplug/payplug-sharp/blob/master/LICENSE.md</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <projectUrl>https://github.com/payplug/payplug-sharp</projectUrl>
     <iconUrl>https://avatars.githubusercontent.com/u/13571703</iconUrl>
