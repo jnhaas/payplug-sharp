@@ -12,11 +12,16 @@
 This is the documentation of PayPlug's .NET library. It is designed to
 help developers to use PayPlug as payment solution in a simple, yet robust way.
 
+You can create a PayPlug account at http://payplug.com.
+
 Prerequisites
 -------------
 
 PayPlug's library relies on **Newtonsoft.Json** for JSON serialization. You also need **.NET 4.5** or newer to use the library.
 
+Documentation
+-------------
+Please see https://www.payplug.com/docs/api for latest documentation.
 
 Installation
 ------------
