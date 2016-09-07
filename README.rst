@@ -12,7 +12,7 @@
 This is the documentation of PayPlug's .NET library. It is designed to
 help developers to use PayPlug as payment solution in a simple, yet robust way.
 
-You can create a PayPlug account at http://payplug.com.
+You can create a PayPlug account at https://www.payplug.com.
 
 Prerequisites
 -------------
