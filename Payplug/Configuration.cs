@@ -40,5 +40,10 @@
                 return "Bearer " + SecretKey;
             }
         }
+
+        /// <summary>
+        /// Gets or sets the version of the API to use. 
+        /// </summary>
+        public static string Version { get; set; } = "2019-06-14";
     }
 }

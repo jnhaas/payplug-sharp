@@ -18,7 +18,7 @@
         /// <returns>The response content.</returns>
         public static string Get(Uri uri)
         {
-            return Request("GET", uri, null, Configuration.AuthorizationHeader);
+            return Request("GET", uri, null, Configuration.AuthorizationHeader, Configuration.Version);
         }
 
         /// <summary>
@@ -29,7 +29,7 @@
         /// <returns>The response content.</returns>
         public static string Post(Uri uri, string data)
         {
-            return Request("POST", uri, data, Configuration.AuthorizationHeader);
+            return Request("POST", uri, data, Configuration.AuthorizationHeader, Configuration.Version);
         }
 
         /// <summary>
@@ -40,7 +40,7 @@
         /// <returns>The response content.</returns>
         public static string Patch(Uri uri, string data)
         {
-            return Request("PATCH", uri, data, Configuration.AuthorizationHeader);
+            return Request("PATCH", uri, data, Configuration.AuthorizationHeader, Configuration.Version);
         }
 
         /// <summary>
@@ -50,7 +50,7 @@
         /// <param name="data">The request content.</param>
         public static void Delete(Uri uri, string data = null)
         {
-            Request("DELETE", uri, data, Configuration.AuthorizationHeader);
+            Request("DELETE", uri, data, Configuration.AuthorizationHeader, Configuration.Version);
         }
 
         /// <summary>
@@ -61,7 +61,7 @@
         /// <param name="data">The request content.</param>
         /// <param name="authorizationHeader">Authorization header used to authenticate the request.</param>
         /// <returns>The response content.</returns>
-        private static string Request(string method, Uri uri, string data, string authorizationHeader = null)
+        private static string Request(string method, Uri uri, string data, string authorizationHeader = null, string version = null)
         {
 #if !__MonoCS__
             if ((System.Net.ServicePointManager.SecurityProtocol & SecurityProtocolType.Tls) != SecurityProtocolType.Tls &&
@@ -83,6 +83,10 @@
                 if (!string.IsNullOrEmpty(authorizationHeader))
                 {
                     request.Headers.Add("Authorization", authorizationHeader);
+                }
+                if (!string.IsNullOrEmpty(version))
+                {
+                    request.Headers.Add("PayPlug-Version", version);
                 }
 
                 request.Accept = "application/json";
